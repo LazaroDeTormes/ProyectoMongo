@@ -4,17 +4,17 @@ import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
+import org.example.model.entities.Conexion;
+import org.example.model.entities.Creacion;
 
 
 public class Main {
     public static void main(String[] args) {
 
         try {
-            MongoClient cliente = new MongoClient("127.0.0.1", 27017);
+            Conexion.conexion();
 
-            MongoDatabase db = cliente.getDatabase("ProyectoUD5");
-
-            MongoCollection<Document> platos = db.getCollection("platos");
+            Creacion.creacion();
 
 
 

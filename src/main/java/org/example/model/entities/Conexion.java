@@ -6,7 +6,7 @@ import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 
 public class Conexion {
-    public void conexion(){
+    public static void conexion(){
 
 
         try {

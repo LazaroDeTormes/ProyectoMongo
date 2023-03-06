@@ -1,6 +1,7 @@
 package org.example.model.entities;
 
 import java.util.Date;
+import java.util.List;
 
 public class Cliente {
 
@@ -8,9 +9,8 @@ public class Cliente {
 
     private String apellidos;
 
-    private Date fecha;
-
-    private  Recibo recibo;
+    private String fecha;
+    private List<Recibo> recibo;
     private String correo;
 
     public String getNombre() {
@@ -37,19 +37,19 @@ public class Cliente {
         this.apellidos = apellidos;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
-    public Recibo getRecibo() {
+    public List<Recibo> getRecibo() {
         return recibo;
     }
 
-    public void setRecibo(Recibo recibo) {
+    public void setRecibo(List<Recibo> recibo) {
         this.recibo = recibo;
     }
 }
