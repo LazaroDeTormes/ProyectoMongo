@@ -1,20 +1,20 @@
 package org.example;
 
 import com.mongodb.MongoClient;
+import com.mongodb.MongoClientOptions;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Indexes;
 import com.mongodb.client.model.Projections;
-import org.bson.Document;
 import org.bson.codecs.configuration.CodecRegistries;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
-import org.example.model.entities.Cliente;
-import org.example.model.entities.Conexion;
-import org.example.model.entities.Creacion;
+import org.example.model.entities.daos.*;
+import org.example.model.entities.models.*;
+
+import java.util.ArrayList;
 
 import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
 import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
@@ -24,45 +24,37 @@ public class Main {
     public static void main(String[] args) {
 
         try {
+            BaseDAO baseDAO = new BaseDAO();
+            ClienteDAO clienteDAO = new ClienteDAO(baseDAO);
+            CocheDAO cocheDAO = new CocheDAO(baseDAO);
+            PlatoDAO platoDAO = new PlatoDAO(baseDAO);
+            CocineroDAO cocineroDAO = new CocineroDAO(baseDAO);
+            ReciboDAO reciboDAO = new ReciboDAO(baseDAO);
 
+            //BUSCAMOS LOS CIENTES LLAMADOS CARLOS Y LOS ORDENAMOS POR ORDEN ALFABÉTICO POR LOS APELLIDOS
+            clienteDAO.buscarCarlos();
+            System.out.println("");
 
+            //BUSCAMOS LOS CIENTES NACIDOS ANTES DE 1980 Y LOS ORDENAMOS POR ORDEN ALFABÉTICO POR EL NOMBRE
+            clienteDAO.buscar1980();
+            System.out.println("");
 
-            MongoClient cliente = new MongoClient("localhost", 27017);
+            //BUSCAMOS LOS COCHES QUE SEAN MERCEDES BENZ Y LOS ORDENAMOS POR ORDEN ALFABÉTICO DESCENDENTE POR LAS MATRÍCULAS
+            cocheDAO.buscarMercedesBenz();
+            System.out.println("");
 
-            CodecRegistry codecRegistry = CodecRegistries.fromRegistries(
-                    MongoClientSettings.getDefaultCodecRegistry(),
-                    CodecRegistries.fromProviders(PojoCodecProvider.builder().automatic(true).build())
-            );
+            //BUSCAMOS LOS PLATOS QUE CUESTEN ENTRE 40 Y 139 EUROS Y LOS ORDENAMOS POR ORDEN ALFABÉTICO ASCENDENTE POR LOS NOMBRES
+            platoDAO.buscarPorPrecio();
+            System.out.println("");
 
-            MongoDatabase db = cliente.getDatabase("ProyectoUD5").withCodecRegistry(codecRegistry);
+            //BUSCAMOS
+            cocineroDAO.buscar();
+            System.out.println("");
 
+            //BUSCAMOS
+            reciboDAO.buscar();
+            System.out.println("");
 
-
-            Creacion.creacion(db);
-
-            MongoCollection<Document> clientes = db.getCollection("Clientes");
-
-
-            Document d = clientes.find(Filters.eq("nombre","Fernando")).first();
-
-            System.out.println(d.toJson());
-
-
-            try {
-
-                MongoCursor<Document> cursor = clientes
-                        .find(Filters.eq("nombre", "Carlos")).sort(Indexes.ascending("apellidos"))
-                        .projection(Projections.exclude("id", "fecha", "reciboId")).iterator();
-
-                while (cursor.hasNext()) {
-                    Document document = cursor.next();
-                    String json = document.toJson();
-                    System.out.println(json);
-                }
-
-            }catch (Exception e){
-                System.out.println(e);
-            }
 
 
         } catch (Exception e){

@@ -1,11 +1,10 @@
 package org.example.model.entities;
 
-import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
-import org.bson.codecs.configuration.CodecRegistry;
-import org.bson.codecs.pojo.PojoCodecProvider;
+import org.bson.types.ObjectId;
+import org.example.model.entities.models.*;
 
 import java.util.*;
 
@@ -18,91 +17,91 @@ public class Creacion {
     public static void creacion(MongoDatabase db){
 
         Cliente cli1 = new Cliente();
-        cli1.setId(1);
+        cli1.setId(ObjectId.get());
         cli1.setNombre("Fernando");
         cli1.setApellidos("Alonso Díaz");
         cli1.setCorreo("fernaso@gmail.com");
         cli1.setFecha("1999");
 
         Cliente cli2 = new Cliente();
-        cli2.setId(2);
+        cli2.setId(ObjectId.get());
         cli2.setNombre("Carlos");
         cli2.setApellidos("Sainz Vázquez de Castro");
         cli2.setCorreo("casavaca@gmail.com");
         cli2.setFecha("1988");
 
         Cliente cli3 = new Cliente();
-        cli3.setId(3);
+        cli3.setId(ObjectId.get());
         cli3.setNombre("Martin");
         cli3.setApellidos("Hamilton");
         cli3.setCorreo("poophead@gmail.com");
         cli3.setFecha("1989");
 
         Cliente cli4 = new Cliente();
-        cli4.setId(4);
+        cli4.setId(ObjectId.get());
         cli4.setNombre("Alberto");
         cli4.setApellidos("Chicote Porco");
         cli4.setCorreo("chicobocata@gmail.com");
         cli4.setFecha("1969");
 
         Cliente cli5 = new Cliente();
-        cli5.setId(5);
+        cli5.setId(ObjectId.get());
         cli5.setNombre("Cristina");
         cli5.setApellidos("Pedroche Vestido");
         cli5.setCorreo("campanera@gmail.com");
         cli5.setFecha("1979");
 
         Cliente cli6 = new Cliente();
-        cli6.setId(6);
+        cli6.setId(ObjectId.get());
         cli6.setNombre("Francisco");
         cli6.setApellidos("Cuesta Selva");
         cli6.setCorreo("santufran@gmail.com");
         cli6.setFecha("1975");
 
         Cliente cli7 = new Cliente();
-        cli7.setId(7);
+        cli7.setId(ObjectId.get());
         cli7.setNombre("Ibai");
         cli7.setApellidos("Llanos Hondos");
         cli7.setCorreo("nomelocreo@gmail.com");
         cli7.setFecha("1995");
 
         Cliente cli8 = new Cliente();
-        cli8.setId(8);
+        cli8.setId(ObjectId.get());
         cli8.setNombre("Hershel");
         cli8.setApellidos("Pizarro Stones");
         cli8.setCorreo("sombrero@gmail.com");
         cli8.setFecha("1980");
 
         Cliente cli9 = new Cliente();
-        cli9.setId(9);
+        cli9.setId(ObjectId.get());
         cli9.setNombre("Carlos");
         cli9.setApellidos("Bolena Botella");
         cli9.setCorreo("eibibi@gmail.com");
         cli9.setFecha("1992");
 
         Cliente cli10 = new Cliente();
-        cli10.setId(10);
+        cli10.setId(ObjectId.get());
         cli10.setNombre("Héctor");
         cli10.setApellidos("Puyol Riveiro");
         cli10.setCorreo("puritime@gmail.com");
         cli1.setFecha("1996");
 
         Cliente cli11 = new Cliente();
-        cli11.setId(11);
+        cli11.setId(ObjectId.get());
         cli11.setNombre("Miriam");
         cli11.setApellidos("García Pérez");
         cli11.setCorreo("miriam19@gmail.com");
         cli11.setFecha("1977");
 
         Cliente cli12 = new Cliente();
-        cli12.setId(12);
+        cli12.setId(ObjectId.get());
         cli12.setNombre("Celia");
         cli12.setApellidos("Mbappé Ronaldo");
         cli12.setCorreo("fernaso@gmail.com");
         cli12.setFecha("1999");
 
         Cliente cli13 = new Cliente();
-        cli13.setId(13);
+        cli13.setId(ObjectId.get());
         cli13.setNombre("Iago");
         cli13.setApellidos("Aspas Calderón");
         cli13.setCorreo("numerouno@gmail.com");
@@ -111,121 +110,121 @@ public class Creacion {
         //=====================================================================================
 
         Cocinero coc1 = new Cocinero();
-        coc1.setId(1);
+        coc1.setId(ObjectId.get());
         coc1.setNombre("José");
         coc1.setApellidos("Mota Gutiérrez");
 
         Cocinero coc2 = new Cocinero();
-        coc2.setId(2);
+        coc2.setId(ObjectId.get());
         coc2.setNombre("Cirilo");
         coc2.setApellidos("Álvarez Mojica");
 
         Cocinero coc3 = new Cocinero();
-        coc3.setId(3);
+        coc3.setId(ObjectId.get());
         coc3.setNombre("Jimena");
         coc3.setApellidos("Tarrasa López");
 
         Cocinero coc4 = new Cocinero();
-        coc4.setId(4);
+        coc4.setId(ObjectId.get());
         coc4.setNombre("Claudia");
         coc4.setApellidos("García Almádena");
 
         Cocinero coc5 = new Cocinero();
-        coc5.setId(5);
+        coc5.setId(ObjectId.get());
         coc5.setNombre("Penélope");
         coc5.setApellidos("Alguacil Frey");
 
         Cocinero coc6 = new Cocinero();
-        coc6.setId(6);
+        coc6.setId(ObjectId.get());
         coc6.setNombre("Lucas");
         coc6.setApellidos("Oyarzábal Pineda");
 
         Cocinero coc7 = new Cocinero();
-        coc7.setId(7);
+        coc7.setId(ObjectId.get());
         coc7.setNombre("Laura");
         coc7.setApellidos("Soto Oriamendi");
 
         Cocinero coc8 = new Cocinero();
-        coc8.setId(8);
+        coc8.setId(ObjectId.get());
         coc8.setNombre("Mónica");
         coc8.setApellidos("Bonachea Rodríguez");
 
         Cocinero coc9 = new Cocinero();
-        coc9.setId(9);
+        coc9.setId(ObjectId.get());
         coc9.setNombre("Juan Alberto");
         coc9.setApellidos("Ruiz Pereira");
 
         Cocinero coc10 = new Cocinero();
-        coc10.setId(10);
+        coc10.setId(ObjectId.get());
         coc10.setNombre("João");
         coc10.setApellidos("Castelo Belhado");
 
         //========================================================================================
 
         Coche coche1 = new Coche();
-        coche1.setId(1);
+        coche1.setId(ObjectId.get());
         coche1.setMatricula("AL0001MM");
         coche1.setModelo("Seat Ibiza");
         coche1.setConductorId(coc1.getId());
 
         Coche coche2 = new Coche();
-        coche2.setId(2);
+        coche2.setId(ObjectId.get());
         coche2.setMatricula("TA0002LB");
-        coche2.setModelo("Seat Ibiza");
+        coche2.setModelo("Mercedes Benz");
         coche2.setConductorId(coc2.getId());
 
         Coche coche3 = new Coche();
-        coche3.setId(3);
+        coche3.setId(ObjectId.get());
         coche3.setMatricula("PO0003HM");
-        coche3.setModelo("Seat Ibiza");
+        coche3.setModelo("Dacia Duster");
         coche3.setConductorId(coc3.getId());
 
         Coche coche4 = new Coche();
-        coche4.setId(4);
+        coche4.setId(ObjectId.get());
         coche4.setMatricula("VA0004FG");
-        coche4.setModelo("Seat Ibiza");
+        coche4.setModelo("Opel Corsa");
         coche4.setConductorId(coc4.getId());
 
         Coche coche5 = new Coche();
-        coche5.setId(5);
+        coche5.setId(ObjectId.get());
         coche5.setMatricula("NA0005RE");
-        coche5.setModelo("Seat Ibiza");
+        coche5.setModelo("Catapulta Romana");
         coche5.setConductorId(coc5.getId());
 
         Coche coche6 = new Coche();
-        coche6.setId(6);
+        coche6.setId(ObjectId.get());
         coche6.setMatricula("JA0006KU");
-        coche6.setModelo("Seat Ibiza");
+        coche6.setModelo("Mercedes Benz");
         coche6.setConductorId(coc6.getId());
 
         Coche coche7 = new Coche();
-        coche7.setId(7);
+        coche7.setId(ObjectId.get());
         coche7.setMatricula("SE0007TW");
-        coche7.setModelo("Seat Ibiza");
+        coche7.setModelo("Ford Nucleon");
         coche7.setConductorId(coc7.getId());
 
         Coche coche8 = new Coche();
-        coche8.setId(8);
+        coche8.setId(ObjectId.get());
         coche8.setMatricula("MA0008HH");
-        coche8.setModelo("Seat Ibiza");
+        coche8.setModelo("Renault Twingo");
         coche8.setConductorId(coc8.getId());
 
         Coche coche9 = new Coche();
-        coche9.setId(9);
+        coche9.setId(ObjectId.get());
         coche9.setMatricula("TO0009AS");
-        coche9.setModelo("Seat Ibiza");
+        coche9.setModelo("Carro de Bueyes");
         coche9.setConductorId(coc9.getId());
 
         Coche coche10 = new Coche();
-        coche10.setId(10);
+        coche10.setId(ObjectId.get());
         coche10.setMatricula("ZA0010MO");
-        coche10.setModelo("Seat Ibiza");
+        coche10.setModelo("Dodge 3700 GT");
         coche10.setConductorId(coc10.getId());
 
         //==============================================================================
 
         Recibo rec1 = new Recibo();
-        rec1.setId(1);
+        rec1.setId(ObjectId.get());
         rec1.setImporte(40);
         rec1.setCocineroId(coc1.getId());
         rec1.setCompradorId(cli1.getId());
@@ -233,7 +232,7 @@ public class Creacion {
         rec1.setDescripcion("descripción 1");
 
         Recibo rec2 = new Recibo();
-        rec2.setId(2);
+        rec2.setId(ObjectId.get());
         rec2.setImporte(140);
         rec2.setCocineroId(coc2.getId());
         rec2.setCompradorId(cli2.getId());
@@ -241,7 +240,7 @@ public class Creacion {
         rec2.setDescripcion("descripción 2");
 
         Recibo rec3 = new Recibo();
-        rec3.setId(3);
+        rec3.setId(ObjectId.get());
         rec3.setImporte(20);
         rec3.setCocineroId(coc3.getId());
         rec3.setCompradorId(cli3.getId());
@@ -249,7 +248,7 @@ public class Creacion {
         rec3.setDescripcion("descripción 3");
 
         Recibo rec4 = new Recibo();
-        rec4.setId(4);
+        rec4.setId(ObjectId.get());
         rec4.setImporte(12);
         rec4.setCocineroId(coc4.getId());
         rec4.setCompradorId(cli4.getId());
@@ -257,7 +256,7 @@ public class Creacion {
         rec4.setDescripcion("descripción 4");
 
         Recibo rec5 = new Recibo();
-        rec5.setId(5);
+        rec5.setId(ObjectId.get());
         rec5.setImporte(17);
         rec5.setCocineroId(coc5.getId());
         rec5.setCompradorId(cli5.getId());
@@ -265,7 +264,7 @@ public class Creacion {
         rec5.setDescripcion("descripción 5");
 
         Recibo rec6 = new Recibo();
-        rec6.setId(6);
+        rec6.setId(ObjectId.get());
         rec6.setImporte(89);
         rec6.setCocineroId(coc6.getId());
         rec6.setCompradorId(cli6.getId());
@@ -273,7 +272,7 @@ public class Creacion {
         rec6.setDescripcion("descripción 6");
 
         Recibo rec7 = new Recibo();
-        rec7.setId(7);
+        rec7.setId(ObjectId.get());
         rec7.setImporte(40);
         rec7.setCocineroId(coc7.getId());
         rec7.setCompradorId(cli7.getId());
@@ -281,7 +280,7 @@ public class Creacion {
         rec7.setDescripcion("descripción 7");
 
         Recibo rec8 = new Recibo();
-        rec8.setId(8);
+        rec8.setId(ObjectId.get());
         rec8.setImporte(44);
         rec8.setCocineroId(coc8.getId());
         rec8.setCompradorId(cli8.getId());
@@ -289,7 +288,7 @@ public class Creacion {
         rec8.setDescripcion("descripción 8");
 
         Recibo rec9 = new Recibo();
-        rec9.setId(9);
+        rec9.setId(ObjectId.get());
         rec9.setImporte(24);
         rec9.setCocineroId(coc9.getId());
         rec9.setCompradorId(cli9.getId());
@@ -297,7 +296,7 @@ public class Creacion {
         rec9.setDescripcion("descripción 9");
 
         Recibo rec10 = new Recibo();
-        rec10.setId(10);
+        rec10.setId(ObjectId.get());
         rec10.setImporte(22);
         rec10.setCocineroId(coc10.getId());
         rec10.setCompradorId(cli10.getId());
@@ -305,7 +304,7 @@ public class Creacion {
         rec10.setDescripcion("descripción 10");
 
         Recibo rec11 = new Recibo();
-        rec11.setId(11);
+        rec11.setId(ObjectId.get());
         rec11.setImporte(10);
         rec11.setCocineroId(coc1.getId());
         rec11.setCompradorId(cli1.getId());
@@ -313,7 +312,7 @@ public class Creacion {
         rec11.setDescripcion("descripción 11");
 
         Recibo rec12 = new Recibo();
-        rec12.setId(12);
+        rec12.setId(ObjectId.get());
         rec12.setImporte(17);
         rec12.setCocineroId(coc1.getId());
         rec12.setCompradorId(cli12.getId());
@@ -321,7 +320,7 @@ public class Creacion {
         rec12.setDescripcion("descripción 12");
 
         Recibo rec13 = new Recibo();
-        rec13.setId(13);
+        rec13.setId(ObjectId.get());
         rec13.setImporte(17);
         rec13.setCocineroId(coc2.getId());
         rec13.setCompradorId(cli13.getId());
@@ -331,32 +330,32 @@ public class Creacion {
         //=================================================================================================
 
         Plato pla1 = new Plato();
-        pla1.setId(1);
+        pla1.setId(ObjectId.get());
         pla1.setNombre("Patatas");
         pla1.setPrecio(10);
 
         Plato pla2 = new Plato();
-        pla2.setId(2);
+        pla2.setId(ObjectId.get());
         pla2.setNombre("Croquetas");
         pla2.setPrecio(7);
 
         Plato pla3 = new Plato();
-        pla3.setId(3);
+        pla3.setId(ObjectId.get());
         pla3.setNombre("Ensalada Campestre");
         pla3.setPrecio(12);
 
         Plato pla4 = new Plato();
-        pla4.setId(4);
+        pla4.setId(ObjectId.get());
         pla4.setNombre("Paella");
         pla4.setPrecio(20);
 
         Plato pla5 = new Plato();
-        pla5.setId(5);
+        pla5.setId(ObjectId.get());
         pla5.setNombre("Arroz con cosas");
         pla5.setPrecio(89);
 
         Plato pla6 = new Plato();
-        pla6.setId(6);
+        pla6.setId(ObjectId.get());
         pla6.setNombre("Pulpo");
         pla6.setPrecio(140);
 
@@ -412,106 +411,106 @@ public class Creacion {
 
 
 
-        ArrayList<Integer> lista1 = new ArrayList<>();
-        lista1.add(if1.getId());
+        ArrayList<ItemFactura> lista1 = new ArrayList<>();
+        lista1.add(if1);
         rec1.setItems(lista1);
 
-        ArrayList<Integer> lista2 = new ArrayList<>();
-        lista2.add(if2.getId());
+        ArrayList<ItemFactura> lista2 = new ArrayList<>();
+        lista2.add(if2);
         rec2.setItems(lista2);
 
-        ArrayList<Integer> lista3 = new ArrayList<>();
-        lista3.add(if3.getId());
+        ArrayList<ItemFactura> lista3 = new ArrayList<>();
+        lista3.add(if3);
         rec3.setItems(lista3);
 
-        ArrayList<Integer> lista4 = new ArrayList<>();
-        lista4.add(if4.getId());
+        ArrayList<ItemFactura> lista4 = new ArrayList<>();
+        lista4.add(if4);
         rec4.setItems(lista4);
 
-        ArrayList<Integer> lista5 = new ArrayList<>();
-        lista5.add(if5.getId());
-        lista5.add(if6.getId());
+        ArrayList<ItemFactura> lista5 = new ArrayList<>();
+        lista5.add(if5);
+        lista5.add(if6);
         rec5.setItems(lista5);
         rec12.setItems(lista5);
         rec13.setItems(lista5);
 
-        ArrayList<Integer> lista6 = new ArrayList<>();
-        lista6.add(if7.getId());
+        ArrayList<ItemFactura> lista6 = new ArrayList<>();
+        lista6.add(if7);
         rec6.setItems(lista6);
 
-        ArrayList<Integer> lista7 = new ArrayList<>();
-        lista7.add(if1.getId());
+        ArrayList<ItemFactura> lista7 = new ArrayList<>();
+        lista7.add(if1);
         rec7.setItems(lista7);
 
-        ArrayList<Integer> lista8 = new ArrayList<>();
-        lista8.add(if5.getId());
-        lista8.add(if5.getId());
-        lista8.add(if3.getId());
+        ArrayList<ItemFactura> lista8 = new ArrayList<>();
+        lista8.add(if5);
+        lista8.add(if5);
+        lista8.add(if3);
         rec8.setItems(lista8);
 
-        ArrayList<Integer> lista9 = new ArrayList<>();
-        lista9.add(if5.getId());
-        lista9.add(if5.getId());
+        ArrayList<ItemFactura> lista9 = new ArrayList<>();
+        lista9.add(if5);
+        lista9.add(if5);
         rec9.setItems(lista9);
 
-        ArrayList<Integer> lista10 = new ArrayList<>();
-        lista10.add(if4.getId());
-        lista10.add(if5.getId());
+        ArrayList<ItemFactura> lista10 = new ArrayList<>();
+        lista10.add(if4);
+        lista10.add(if5);
         rec10.setItems(lista10);
 
-        ArrayList<Integer> lista11 = new ArrayList<>();
-        lista11.add(if4.getId());
+        ArrayList<ItemFactura> lista11 = new ArrayList<>();
+        lista11.add(if4);
         rec11.setItems(lista11);
 
-        ArrayList<Integer> list1 = new ArrayList<>();
+        ArrayList<ObjectId> list1 = new ArrayList<>();
         list1.add(rec1.getId());
         cli1.setRecibo(list1);
 
-        ArrayList<Integer> list2 = new ArrayList<>();
+        ArrayList<ObjectId> list2 = new ArrayList<>();
         list2.add(rec2.getId());
         cli2.setRecibo(list2);
 
-        ArrayList<Integer> list3 = new ArrayList<>();
+        ArrayList<ObjectId> list3 = new ArrayList<>();
         list3.add(rec3.getId());
         cli3.setRecibo(list3);
 
-        ArrayList<Integer> list4 = new ArrayList<>();
+        ArrayList<ObjectId> list4 = new ArrayList<>();
         list4.add(rec4.getId());
         cli4.setRecibo(list4);
 
-        ArrayList<Integer> list5 = new ArrayList<>();
+        ArrayList<ObjectId> list5 = new ArrayList<>();
         list5.add(rec5.getId());
         cli5.setRecibo(list5);
 
-        ArrayList<Integer> list6 = new ArrayList<>();
+        ArrayList<ObjectId> list6 = new ArrayList<>();
         list6.add(rec6.getId());
         cli6.setRecibo(list6);
 
-        ArrayList<Integer> list7 = new ArrayList<>();
+        ArrayList<ObjectId> list7 = new ArrayList<>();
         list7.add(rec7.getId());
         cli7.setRecibo(list7);
 
-        ArrayList<Integer> list8 = new ArrayList<>();
+        ArrayList<ObjectId> list8 = new ArrayList<>();
         list8.add(rec8.getId());
         cli8.setRecibo(list8);
 
-        ArrayList<Integer> list9 = new ArrayList<>();
+        ArrayList<ObjectId> list9 = new ArrayList<>();
         list9.add(rec9.getId());
         cli9.setRecibo(list9);
 
-        ArrayList<Integer> list10 = new ArrayList<>();
+        ArrayList<ObjectId> list10 = new ArrayList<>();
         list10.add(rec10.getId());
         cli10.setRecibo(list10);
 
-        ArrayList<Integer> list11 = new ArrayList<>();
+        ArrayList<ObjectId> list11 = new ArrayList<>();
         list11.add(rec11.getId());
         cli11.setRecibo(list11);
 
-        ArrayList<Integer> list12 = new ArrayList<>();
+        ArrayList<ObjectId> list12 = new ArrayList<>();
         list12.add(rec12.getId());
         cli12.setRecibo(list12);
 
-        ArrayList<Integer> list13 = new ArrayList<>();
+        ArrayList<ObjectId> list13 = new ArrayList<>();
         list13.add(rec13.getId());
         cli13.setRecibo(list13);
 

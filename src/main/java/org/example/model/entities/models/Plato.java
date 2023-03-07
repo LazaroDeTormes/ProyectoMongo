@@ -1,8 +1,10 @@
-package org.example.model.entities;
+package org.example.model.entities.models;
+
+import org.bson.types.ObjectId;
 
 public class Plato {
 
-    private Integer id;
+    private ObjectId id;
     private String nombre;
 
     private Integer precio;
@@ -23,11 +25,20 @@ public class Plato {
         this.precio = precio;
     }
 
-    public Integer getId() {
+    public ObjectId getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(ObjectId id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Plato{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", precio=" + precio +
+                '}';
     }
 }

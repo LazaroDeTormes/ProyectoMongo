@@ -1,15 +1,17 @@
-package org.example.model.entities;
+package org.example.model.entities.models;
+
+import org.bson.types.ObjectId;
 
 import java.util.Date;
 import java.util.List;
 
 public class Cliente {
 
-    private Integer id;
+    private ObjectId id;
     private String nombre;
     private String apellidos;
     private String fecha;
-    private List<Integer> reciboId;
+    private List<ObjectId> reciboId;
     private String correo;
 
     public String getNombre() {
@@ -44,19 +46,31 @@ public class Cliente {
         this.fecha = fecha;
     }
 
-    public List<Integer> getReciboId() {
+    public List<ObjectId> getReciboId() {
         return reciboId;
     }
 
-    public void setRecibo(List<Integer> reciboId) {
+    public void setRecibo(List<ObjectId> reciboId) {
         this.reciboId = reciboId;
     }
 
-    public Integer getId() {
+    public ObjectId getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(ObjectId id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", apellidos='" + apellidos + '\'' +
+                ", fecha='" + fecha + '\'' +
+                ", reciboId=" + reciboId +
+                ", correo='" + correo + '\'' +
+                '}';
     }
 }
