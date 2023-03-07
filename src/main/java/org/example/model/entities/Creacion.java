@@ -1,11 +1,21 @@
 package org.example.model.entities;
 
-import java.util.List;
+import com.mongodb.MongoClient;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+import org.bson.Document;
+import org.bson.codecs.configuration.CodecRegistry;
+import org.bson.codecs.pojo.PojoCodecProvider;
+
+import java.util.*;
+
+import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
+import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
 
 public class Creacion {
 
 
-    public static void creacion(){
+    public static void creacion(MongoDatabase db){
 
         Cliente cli1 = new Cliente();
         cli1.setNombre("Fernando");
@@ -311,6 +321,240 @@ public class Creacion {
         coc8.setCoche(coche8);
         coc9.setCoche(coche9);
         coc10.setCoche(coche10);
+
+        ItemFactura if1 = new ItemFactura();
+        if1.setPlato(pla4);
+        if1.setCantidad(2);
+
+        ItemFactura if2 = new ItemFactura();
+        if2.setPlato(pla6);
+        if2.setCantidad(1);
+
+        ItemFactura if3 = new ItemFactura();
+        if3.setPlato(pla4);
+        if3.setCantidad(1);
+
+        ItemFactura if4 = new ItemFactura();
+        if4.setPlato(pla3);
+        if4.setCantidad(1);
+
+        ItemFactura if5 = new ItemFactura();
+        if5.setPlato(pla1);
+        if5.setCantidad(1);
+
+        ItemFactura if6 = new ItemFactura();
+        if6.setPlato(pla2);
+        if6.setCantidad(1);
+
+        ItemFactura if7 = new ItemFactura();
+        if7.setPlato(pla5);
+        if7.setCantidad(1);
+
+        ItemFactura if8 = new ItemFactura();
+        if8.setPlato(pla1);
+        if8.setCantidad(4);
+
+
+
+
+
+
+
+        ArrayList<ItemFactura> lista1 = new ArrayList<>();
+        lista1.add(if1);
+        rec1.setItems(lista1);
+
+        ArrayList<ItemFactura> lista2 = new ArrayList<>();
+        lista2.add(if2);
+        rec2.setItems(lista2);
+
+        ArrayList<ItemFactura> lista3 = new ArrayList<>();
+        lista3.add(if3);
+        rec3.setItems(lista3);
+
+        ArrayList<ItemFactura> lista4 = new ArrayList<>();
+        lista4.add(if4);
+        rec4.setItems(lista4);
+
+        ArrayList<ItemFactura> lista5 = new ArrayList<>();
+        lista5.add(if5);
+        lista5.add(if6);
+        rec5.setItems(lista5);
+        rec12.setItems(lista5);
+        rec13.setItems(lista5);
+
+        ArrayList<ItemFactura> lista6 = new ArrayList<>();
+        lista6.add(if7);
+        rec6.setItems(lista6);
+
+        ArrayList<ItemFactura> lista7 = new ArrayList<>();
+        lista7.add(if1);
+        rec7.setItems(lista7);
+
+        ArrayList<ItemFactura> lista8 = new ArrayList<>();
+        lista8.add(if5);
+        lista8.add(if5);
+        lista8.add(if3);
+        rec8.setItems(lista8);
+
+        ArrayList<ItemFactura> lista9 = new ArrayList<>();
+        lista9.add(if5);
+        lista9.add(if5);
+        rec9.setItems(lista9);
+
+        ArrayList<ItemFactura> lista10 = new ArrayList<>();
+        lista10.add(if4);
+        lista10.add(if5);
+        rec10.setItems(lista10);
+
+        ArrayList<ItemFactura> lista11 = new ArrayList<>();
+        lista11.add(if4);
+        rec11.setItems(lista11);
+
+        ArrayList<Recibo> list1 = new ArrayList<>();
+        list1.add(rec1);
+        cli1.setRecibo(list1);
+
+        ArrayList<Recibo> list2 = new ArrayList<>();
+        list2.add(rec2);
+        cli2.setRecibo(list2);
+
+        ArrayList<Recibo> list3 = new ArrayList<>();
+        list3.add(rec3);
+        cli3.setRecibo(list3);
+
+        ArrayList<Recibo> list4 = new ArrayList<>();
+        list4.add(rec4);
+        cli4.setRecibo(list4);
+
+        ArrayList<Recibo> list5 = new ArrayList<>();
+        list5.add(rec5);
+        cli5.setRecibo(list5);
+
+        ArrayList<Recibo> list6 = new ArrayList<>();
+        list6.add(rec6);
+        cli6.setRecibo(list6);
+
+        ArrayList<Recibo> list7 = new ArrayList<>();
+        list7.add(rec7);
+        cli7.setRecibo(list7);
+
+        ArrayList<Recibo> list8 = new ArrayList<>();
+        list8.add(rec8);
+        cli8.setRecibo(list8);
+
+        ArrayList<Recibo> list9 = new ArrayList<>();
+        list9.add(rec9);
+        cli9.setRecibo(list9);
+
+        ArrayList<Recibo> list10 = new ArrayList<>();
+        list10.add(rec10);
+        cli10.setRecibo(list10);
+
+        ArrayList<Recibo> list11 = new ArrayList<>();
+        list11.add(rec11);
+        cli11.setRecibo(list11);
+
+        ArrayList<Recibo> list12 = new ArrayList<>();
+        list12.add(rec12);
+        cli12.setRecibo(list12);
+
+        ArrayList<Recibo> list13 = new ArrayList<>();
+        list13.add(rec13);
+        cli13.setRecibo(list13);
+
+
+
+
+
+
+
+
+
+        MongoCollection<Cliente> clientes = db.getCollection("Clientes", Cliente.class);
+
+        PojoToDocument.parse(cli1);
+        clientes.insertOne(cli1);
+        PojoToDocument.parse(cli2);
+        clientes.insertOne(cli2);
+        clientes.insertOne(cli3);
+        clientes.insertOne(cli4);
+        clientes.insertOne(cli5);
+        clientes.insertOne(cli6);
+        clientes.insertOne(cli7);
+        clientes.insertOne(cli8);
+        clientes.insertOne(cli9);
+        clientes.insertOne(cli10);
+        clientes.insertOne(cli11);
+        clientes.insertOne(cli12);
+        clientes.insertOne(cli13);
+
+        CodecRegistry pojoCodecRegistry2 = fromRegistries(MongoClient.getDefaultCodecRegistry(),
+                fromProviders(PojoCodecProvider.builder().automatic(true).build()));
+        MongoCollection<Recibo> recibos = db.getCollection("Recibos", Recibo.class)
+                .withCodecRegistry(pojoCodecRegistry2);
+
+        recibos.insertOne(rec1);
+        recibos.insertOne(rec2);
+        recibos.insertOne(rec3);
+        recibos.insertOne(rec4);
+        recibos.insertOne(rec5);
+        recibos.insertOne(rec6);
+        recibos.insertOne(rec7);
+        recibos.insertOne(rec8);
+        recibos.insertOne(rec9);
+        recibos.insertOne(rec10);
+        recibos.insertOne(rec11);
+        recibos.insertOne(rec12);
+        recibos.insertOne(rec13);
+
+        CodecRegistry pojoCodecRegistry3 = fromRegistries(MongoClient.getDefaultCodecRegistry(),
+                fromProviders(PojoCodecProvider.builder().automatic(true).build()));
+        MongoCollection<Coche> coches = db.getCollection("Coches", Coche.class)
+                .withCodecRegistry(pojoCodecRegistry3);
+
+        coches.insertOne(coche1);
+        coches.insertOne(coche2);
+        coches.insertOne(coche3);
+        coches.insertOne(coche4);
+        coches.insertOne(coche5);
+        coches.insertOne(coche6);
+        coches.insertOne(coche7);
+        coches.insertOne(coche8);
+        coches.insertOne(coche9);
+        coches.insertOne(coche10);
+
+        CodecRegistry pojoCodecRegistry4 = fromRegistries(MongoClient.getDefaultCodecRegistry(),
+                fromProviders(PojoCodecProvider.builder().automatic(true).build()));
+        MongoCollection<Cocinero> cocineros = db.getCollection("Cocinero", Cocinero.class)
+                .withCodecRegistry(pojoCodecRegistry4);
+
+        cocineros.insertOne(coc1);
+        cocineros.insertOne(coc2);
+        cocineros.insertOne(coc3);
+        cocineros.insertOne(coc4);
+        cocineros.insertOne(coc5);
+        cocineros.insertOne(coc6);
+        cocineros.insertOne(coc7);
+        cocineros.insertOne(coc8);
+        cocineros.insertOne(coc9);
+        cocineros.insertOne(coc10);
+
+        CodecRegistry pojoCodecRegistry5 = fromRegistries(MongoClient.getDefaultCodecRegistry(),
+                fromProviders(PojoCodecProvider.builder().automatic(true).build()));
+        MongoCollection<Plato> platos = db.getCollection("Cocinero", Plato.class)
+                .withCodecRegistry(pojoCodecRegistry5);
+
+        platos.insertOne(pla1);
+        platos.insertOne(pla2);
+        platos.insertOne(pla3);
+        platos.insertOne(pla4);
+        platos.insertOne(pla5);
+        platos.insertOne(pla6);
+
+
+
+
 
 
 

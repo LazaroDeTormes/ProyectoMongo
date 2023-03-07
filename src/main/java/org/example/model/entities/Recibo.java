@@ -7,7 +7,7 @@ public class Recibo {
 
     private int importe;
 
-    private Date fecha;
+    private String fecha;
 
     private String descripcion;
     private Cocinero facturadaPor;
@@ -40,7 +40,7 @@ public class Recibo {
         this.comprador = comprador;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 

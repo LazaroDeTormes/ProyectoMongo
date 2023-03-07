@@ -6,9 +6,7 @@ import java.util.List;
 public class Cliente {
 
     private String nombre;
-
     private String apellidos;
-
     private String fecha;
     private List<Recibo> recibo;
     private String correo;
