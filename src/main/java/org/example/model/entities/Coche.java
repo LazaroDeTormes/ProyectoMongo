@@ -2,11 +2,12 @@ package org.example.model.entities;
 
 public class Coche {
 
+    private Integer id;
     private String matricula;
 
     private String modelo;
 
-    private Cocinero conductor;
+    private Integer conductorId;
 
     public String getMatricula() {
         return matricula;
@@ -24,11 +25,19 @@ public class Coche {
         this.modelo = modelo;
     }
 
-    public Cocinero getConductor() {
-        return conductor;
+    public Integer getConductorId() {
+        return conductorId;
     }
 
-    public void setConductor(Cocinero conductor) {
-        this.conductor = conductor;
+    public void setConductorId(Integer conductorId) {
+        this.conductorId = conductorId;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

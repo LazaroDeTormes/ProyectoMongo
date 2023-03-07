@@ -5,39 +5,40 @@ import java.util.List;
 
 public class Recibo {
 
-    private int importe;
+    private Integer id;
+    private Integer importe;
 
     private String fecha;
 
     private String descripcion;
-    private Cocinero facturadaPor;
+    private Integer cocineroId;
 
-    private Cliente comprador;
+    private Integer compradorId;
 
-    private List<ItemFactura> items;
+    private List<Integer> items;
 
-    public int getImporte() {
+    public Integer getImporte() {
         return importe;
     }
 
-    public void setImporte(int importe) {
+    public void setImporte(Integer importe) {
         this.importe = importe;
     }
 
-    public Cocinero getFacturadaPor() {
-        return facturadaPor;
+    public Integer getCocineroId() {
+        return cocineroId;
     }
 
-    public void setFacturadaPor(Cocinero facturadaPor) {
-        this.facturadaPor = facturadaPor;
+    public void setCocineroId(Integer cocineroId) {
+        this.cocineroId = cocineroId;
     }
 
-    public Cliente getComprador() {
-        return comprador;
+    public Integer getCompradorId() {
+        return compradorId;
     }
 
-    public void setComprador(Cliente comprador) {
-        this.comprador = comprador;
+    public void setCompradorId(Integer compradorId) {
+        this.compradorId = compradorId;
     }
 
     public String getFecha() {
@@ -56,11 +57,19 @@ public class Recibo {
         this.descripcion = descripcion;
     }
 
-    public List<ItemFactura> getItems() {
+    public List<Integer> getItems() {
         return items;
     }
 
-    public void setItems(List<ItemFactura> items) {
+    public void setItems(List<Integer> items) {
         this.items = items;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

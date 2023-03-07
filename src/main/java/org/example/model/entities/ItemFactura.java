@@ -2,23 +2,32 @@ package org.example.model.entities;
 
 public class ItemFactura {
 
-    private int cantidad;
+    private Integer id;
+    private Integer cantidad;
 
-    private Plato plato;
+    private Integer platoId;
 
-    public int getCantidad() {
+    public Integer getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(int cantidad) {
+    public void setCantidad(Integer cantidad) {
         this.cantidad = cantidad;
     }
 
-    public Plato getPlato() {
-        return plato;
+    public Integer getPlatoId() {
+        return platoId;
     }
 
-    public void setPlato(Plato plato) {
-        this.plato = plato;
+    public void setPlatoId(Integer platoId) {
+        this.platoId = platoId;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

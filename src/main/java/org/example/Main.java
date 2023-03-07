@@ -1,10 +1,12 @@
 package org.example;
 
 import com.mongodb.MongoClient;
+import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import org.bson.Document;
+import org.bson.codecs.configuration.CodecRegistries;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
 import org.example.model.entities.Cliente;
@@ -20,14 +22,22 @@ public class Main {
 
         try {
 
-            MongoClient cliente = new MongoClient("127.0.0.1", 27017);
 
-            MongoDatabase db = cliente.getDatabase("ProyectoUD5");
+
+            MongoClient cliente = new MongoClient("localhost", 27017);
+
+            CodecRegistry codecRegistry = CodecRegistries.fromRegistries(
+                    MongoClientSettings.getDefaultCodecRegistry(),
+                    CodecRegistries.fromProviders(PojoCodecProvider.builder().automatic(true).build())
+            );
+
+            MongoDatabase db = cliente.getDatabase("ProyectoUD5").withCodecRegistry(codecRegistry);
+
 
 
             Creacion.creacion(db);
 
-            MongoCollection<Document> clientes = db.getCollection("clientes");
+            MongoCollection<Document> clientes = db.getCollection("Clientes");
 
 
             Document d = clientes.find(Filters.eq("nombre","Fernando")).first();

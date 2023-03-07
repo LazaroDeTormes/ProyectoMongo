@@ -2,9 +2,10 @@ package org.example.model.entities;
 
 public class Plato {
 
+    private Integer id;
     private String nombre;
 
-    private int precio;
+    private Integer precio;
 
     public String getNombre() {
         return nombre;
@@ -14,11 +15,19 @@ public class Plato {
         this.nombre = nombre;
     }
 
-    public int getPrecio() {
+    public Integer getPrecio() {
         return precio;
     }
 
-    public void setPrecio(int precio) {
+    public void setPrecio(Integer precio) {
         this.precio = precio;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

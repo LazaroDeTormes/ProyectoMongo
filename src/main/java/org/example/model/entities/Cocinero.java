@@ -4,13 +4,14 @@ import java.util.List;
 
 public class Cocinero {
 
+    private Integer id;
     private String nombre;
 
     private String apellidos;
 
-    private Coche coche;
+    private Integer cocheId;
 
-    private List<Recibo> recibo;
+    private List<Integer> reciboId;
 
     public String getNombre() {
         return nombre;
@@ -20,12 +21,12 @@ public class Cocinero {
         this.nombre = nombre;
     }
 
-    public Coche getCoche() {
-        return coche;
+    public Integer getCocheId() {
+        return cocheId;
     }
 
-    public void setCoche(Coche coche) {
-        this.coche = coche;
+    public void setCocheId(Integer cocheId) {
+        this.cocheId = cocheId;
     }
 
     public String getApellidos() {
@@ -36,11 +37,19 @@ public class Cocinero {
         this.apellidos = apellidos;
     }
 
-    public List<Recibo> getRecibo() {
-        return recibo;
+    public List<Integer> getReciboId() {
+        return reciboId;
     }
 
-    public void setRecibo(List<Recibo> recibo) {
-        this.recibo = recibo;
+    public void setReciboId(List<Integer> reciboId) {
+        this.reciboId = reciboId;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }
