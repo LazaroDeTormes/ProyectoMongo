@@ -3,8 +3,11 @@ package org.example;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Indexes;
+import com.mongodb.client.model.Projections;
 import org.bson.Document;
 import org.bson.codecs.configuration.CodecRegistries;
 import org.bson.codecs.configuration.CodecRegistry;
@@ -41,11 +44,25 @@ public class Main {
 
 
             Document d = clientes.find(Filters.eq("nombre","Fernando")).first();
-            assert d != null;
+
             System.out.println(d.toJson());
 
 
+            try {
 
+                MongoCursor<Document> cursor = clientes
+                        .find(Filters.eq("nombre", "Carlos")).sort(Indexes.ascending("apellidos"))
+                        .projection(Projections.exclude("id", "fecha", "reciboId")).iterator();
+
+                while (cursor.hasNext()) {
+                    Document document = cursor.next();
+                    String json = document.toJson();
+                    System.out.println(json);
+                }
+
+            }catch (Exception e){
+                System.out.println(e);
+            }
 
 
         } catch (Exception e){
