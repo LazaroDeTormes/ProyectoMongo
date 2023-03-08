@@ -333,31 +333,37 @@ public class Creacion {
         pla1.setId(ObjectId.get());
         pla1.setNombre("Patatas");
         pla1.setPrecio(10);
+        pla1.setTipo("tapas");
 
         Plato pla2 = new Plato();
         pla2.setId(ObjectId.get());
         pla2.setNombre("Croquetas");
         pla2.setPrecio(7);
+        pla2.setTipo("tapas");
 
         Plato pla3 = new Plato();
         pla3.setId(ObjectId.get());
         pla3.setNombre("Ensalada Campestre");
         pla3.setPrecio(12);
+        pla3.setTipo("plato principal");
 
         Plato pla4 = new Plato();
         pla4.setId(ObjectId.get());
         pla4.setNombre("Paella");
         pla4.setPrecio(20);
+        pla4.setTipo("plato principal");
 
         Plato pla5 = new Plato();
         pla5.setId(ObjectId.get());
         pla5.setNombre("Arroz con cosas");
         pla5.setPrecio(89);
+        pla5.setTipo("plato principal");
 
         Plato pla6 = new Plato();
         pla6.setId(ObjectId.get());
         pla6.setNombre("Pulpo");
         pla6.setPrecio(140);
+        pla6.setTipo("tapas");
 
 
         //============================================================================================

@@ -1,13 +1,24 @@
 package org.example.model.entities.daos;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mongodb.Block;
+import com.mongodb.client.AggregateIterable;
 import com.mongodb.client.MongoCollection;
-import com.mongodb.client.model.Filters;
-import com.mongodb.client.model.Indexes;
-import com.mongodb.client.model.Projections;
+import com.mongodb.client.model.*;
+import org.bson.Document;
+import org.bson.conversions.Bson;
+import org.example.model.entities.models.Cliente;
 import org.example.model.entities.models.Coche;
 import org.example.model.entities.models.Plato;
+import org.example.model.entities.models.Recibo;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import static com.mongodb.client.model.Accumulators.sum;
+import static com.mongodb.client.model.Aggregates.group;
 
 public class PlatoDAO {
 
@@ -35,6 +46,51 @@ public class PlatoDAO {
             System.out.println("Error detectado en buscarPorPrecio(): "+e);
         }
 
+    }
+
+    public void agrupacion(){
+
+
+
+        platos.aggregate(List.of(
+                group("$tipo"))
+        ).forEach(printBlock);
+
+    }
+
+
+    public static Block<Plato> printBlock = new Block<Plato>() {
+        @Override
+        public void apply(final Plato plato) {
+            System.out.println(plato.toString());
+        }
+    };
+
+
+
+
+    public void exportar(){
+
+        try {
+
+
+
+            ObjectMapper mapeador = new ObjectMapper();
+            // Recorro la colección completa y añado línea a línea:
+            List<Plato> consulta = platos.find()
+                    .into(new ArrayList<Plato>());
+
+            File fichero = new
+                    File("C:\\Users\\Alex\\OneDrive\\Documentos\\CLASE\\ProyectoMongo\\ficheroPlatos.json");
+
+
+            mapeador.writeValue(fichero, consulta);
+
+
+            // Cierro el archivo:
+        } catch (Exception e){
+            System.out.println(e);
+        }
     }
 
 

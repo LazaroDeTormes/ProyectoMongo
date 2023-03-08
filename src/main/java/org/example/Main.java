@@ -8,13 +8,18 @@ import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Indexes;
 import com.mongodb.client.model.Projections;
+import org.bson.Document;
 import org.bson.codecs.configuration.CodecRegistries;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
 import org.example.model.entities.daos.*;
 import org.example.model.entities.models.*;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
 import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
@@ -61,8 +66,44 @@ public class Main {
 //======================================================ACTUALIZACIONES==============================================================================
 
 
+            //ACTUALIZAMOS EL CORREO DE FERNAQNDO ALONSO DÍAZ
+            clienteDAO.actualizarCorreoAlonso();
+            System.out.println("");
+
+            //ACTUALIZAMOS EL RECIBO IMPUESTO DE UN COCINERO
+            cocineroDAO.actualizarRecibo();
+            System.out.println("");
+
+            //ACTUALIZAMOS EL MODELO DE UN COCHE
+            cocheDAO.actualizarModelo();
+            System.out.println("");
+
+            //ACTUALIZAMOS LA FECHA DE UN RECIBO
+            reciboDAO.actualizarFecha();
+            System.out.println("");
+
+            //ACTUALIZAMOS EL COCINERO QUE HAYA IMPUESTO UN RECIBO
+            reciboDAO.actualizarCocinero();
+            System.out.println("");
+
+            //ACTUALIZAMOS EL AÑO DE NACIMIENTO DE UN CLIENTE
+            clienteDAO.actualizarAnho();
+            System.out.println("");
+
+//================================================AGRUPACIONES=================================================================================
+
+            platoDAO.agrupacion();
 
 
+
+
+//===============================================EXPORTACIONES=================================================================================
+
+            clienteDAO.exportar();
+            reciboDAO.exportar();
+            platoDAO.exportar();
+            cocineroDAO.exportar();
+            cocheDAO.exportar();
 
 
 
