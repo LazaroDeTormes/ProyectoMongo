@@ -31,6 +31,9 @@ public class Main {
             CocineroDAO cocineroDAO = new CocineroDAO(baseDAO);
             ReciboDAO reciboDAO = new ReciboDAO(baseDAO);
 
+
+//===============================================BÚSQUEDAS==============================================================================
+
             //BUSCAMOS LOS CIENTES LLAMADOS CARLOS Y LOS ORDENAMOS POR ORDEN ALFABÉTICO POR LOS APELLIDOS
             clienteDAO.buscarCarlos();
             System.out.println("");
@@ -43,17 +46,23 @@ public class Main {
             cocheDAO.buscarMercedesBenz();
             System.out.println("");
 
-            //BUSCAMOS LOS PLATOS QUE CUESTEN ENTRE 40 Y 139 EUROS Y LOS ORDENAMOS POR ORDEN ALFABÉTICO ASCENDENTE POR LOS NOMBRES
+            //BUSCAMOS LOS PLATOS QUE CUESTEN ENTRE 20 Y 139 EUROS Y LOS ORDENAMOS POR ORDEN ALFABÉTICO ASCENDENTE POR LOS NOMBRES
             platoDAO.buscarPorPrecio();
             System.out.println("");
 
-            //BUSCAMOS
-            cocineroDAO.buscar();
+            //BUSCAMOS LOS COCINEROS EN SU TOTALIDAD ORDENANDO ALFABÉTICAMENTE DE MANERA DESCENDENTE POR EL NOMBRE
+            cocineroDAO.buscarTodosLosCocineros();
             System.out.println("");
 
-            //BUSCAMOS
-            reciboDAO.buscar();
+            //BUSCAMOS TODOS LOS RECIBOS CON UN IMPORTE IGUAL O MENOR A 17 EUROS OCULTANDO LOS ID DE LOS COCINEROS Y COMPRADORES
+            reciboDAO.buscarRecibosDe17oMenos();
             System.out.println("");
+
+//======================================================ACTUALIZACIONES==============================================================================
+
+
+
+
 
 
 

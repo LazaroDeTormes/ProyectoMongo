@@ -7,6 +7,7 @@ import com.mongodb.client.MongoDatabase;
 import org.bson.codecs.configuration.CodecRegistries;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
+import org.example.model.entities.Creacion;
 
 public class BaseDAO {
 
@@ -24,6 +25,11 @@ public class BaseDAO {
 
         this.cliente = new MongoClient("localhost", MongoClientOptions.builder().codecRegistry(codecRegistry).build());
         this.db = cliente.getDatabase("ProyectoUD5").withCodecRegistry(codecRegistry);
+    }
+
+    public void crearTablas(){
+
+        Creacion.creacion(db);
     }
 
 }

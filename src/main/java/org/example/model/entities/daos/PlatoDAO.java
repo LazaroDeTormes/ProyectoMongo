@@ -23,11 +23,11 @@ public class PlatoDAO {
 
         try {
             ArrayList<Plato> platosConsultados = new ArrayList<>();
-            platos.find(Filters.and(Filters.gte("price", 20), Filters.lte("price", 139))).sort(Indexes.ascending("nombre"))
+            platos.find(Filters.and(Filters.gte("precio", 20), Filters.lte("precio", 139))).sort(Indexes.ascending("nombre"))
                     .projection(Projections.exclude("_id")).into(platosConsultados);
 
 
-            System.out.println("BUSCAMOS LOS PLATOS QUE CUESTEN ENTRE 40 Y 139 EUROS Y LOS ORDENAMOS POR ORDEN ALFABÉTICO ASCENDENTE POR LOS NOMBRES");
+            System.out.println("BUSCAMOS LOS PLATOS QUE CUESTEN ENTRE 20 Y 139 EUROS Y LOS ORDENAMOS POR ORDEN ALFABÉTICO ASCENDENTE POR LOS NOMBRES");
             for (Plato p : platosConsultados) {
                 System.out.println(p.toString());
             }
