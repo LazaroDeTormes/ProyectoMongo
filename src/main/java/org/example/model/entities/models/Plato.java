@@ -7,6 +7,8 @@ public class Plato {
     private ObjectId id;
     private String nombre;
 
+    private String tipo;
+
     private Integer precio;
 
     public String getNombre() {
@@ -31,6 +33,14 @@ public class Plato {
 
     public void setId(ObjectId id) {
         this.id = id;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     @Override
