@@ -82,7 +82,7 @@ public class ReciboDAO {
                     .into(new ArrayList<Recibo>());
 
             File fichero = new
-                    File("C:\\Users\\Alex\\OneDrive\\Documentos\\CLASE\\ProyectoMongo\\ficheroRecibos.json");
+                    File("src\\main\\resources\\ficheroRecibos.json");
 
 
             mapeador.writeValue(fichero, consulta);

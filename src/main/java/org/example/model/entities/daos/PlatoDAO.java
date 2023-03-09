@@ -1,6 +1,7 @@
 package org.example.model.entities.daos;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.mongodb.Block;
 import com.mongodb.client.AggregateIterable;
 import com.mongodb.client.MongoCollection;
@@ -12,22 +13,23 @@ import org.example.model.entities.models.Coche;
 import org.example.model.entities.models.Plato;
 import org.example.model.entities.models.Recibo;
 
+import javax.swing.*;
 import java.io.File;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import static com.mongodb.client.model.Accumulators.sum;
 import static com.mongodb.client.model.Aggregates.group;
+import static com.mongodb.client.model.Aggregates.unwind;
 
-public class PlatoDAO {
+public class PlatoDAO extends BaseDAO {
 
-    private MongoCollection<Plato> platos;
+    private final MongoCollection<Plato> platos;
 
-    public PlatoDAO(BaseDAO base){
-
-        this.platos = base.db.getCollection("Platos", Plato.class);
-
+    public PlatoDAO() {
+        this.platos = db.getCollection("Platos", Plato.class);
     }
 
     public void buscarPorPrecio(){
@@ -50,21 +52,28 @@ public class PlatoDAO {
 
     public void agrupacion(){
 
+        System.out.println("AGRUPAMOS LOS PLATOS POR TIPO");
+        db.getCollection("Platos").aggregate(List.of(
+                group("$tipo")
+        )).forEach(System.out::println);
 
+        System.out.println("");
 
-        platos.aggregate(List.of(
-                group("$tipo"))
-        ).forEach(printBlock);
 
     }
 
+    public void agrupacionSuma(){
 
-    public static Block<Plato> printBlock = new Block<Plato>() {
-        @Override
-        public void apply(final Plato plato) {
-            System.out.println(plato.toString());
-        }
-    };
+        System.out.println("AGRUPAMOS LOS PLATOS POR TIPO Y CALCULAMOS EL PRECIO TOTAL DE TODOS LOS DE CADA TIPO");
+        db.getCollection("Platos").aggregate(List.of(
+                group("$tipo", Accumulators.sum("totalprecio", "$precio"))
+        )).forEach(System.out::println);
+
+        System.out.println("");
+    }
+
+
+
 
 
 
@@ -75,19 +84,21 @@ public class PlatoDAO {
 
 
 
-            ObjectMapper mapeador = new ObjectMapper();
-            // Recorro la colección completa y añado línea a línea:
+            ObjectMapper mapeador = new ObjectMapper()
+                    .configure(SerializationFeature.INDENT_OUTPUT, true);
             List<Plato> consulta = platos.find()
                     .into(new ArrayList<Plato>());
 
-            File fichero = new
-                    File("C:\\Users\\Alex\\OneDrive\\Documentos\\CLASE\\ProyectoMongo\\ficheroPlatos.json");
+
+
+
+
+            File fichero = new File("src\\main\\resources\\ficheroPlatos.json");
 
 
             mapeador.writeValue(fichero, consulta);
 
 
-            // Cierro el archivo:
         } catch (Exception e){
             System.out.println(e);
         }

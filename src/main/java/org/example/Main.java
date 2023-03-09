@@ -1,28 +1,7 @@
 package org.example;
 
-import com.mongodb.MongoClient;
-import com.mongodb.MongoClientOptions;
-import com.mongodb.MongoClientSettings;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.model.Filters;
-import com.mongodb.client.model.Indexes;
-import com.mongodb.client.model.Projections;
-import org.bson.Document;
-import org.bson.codecs.configuration.CodecRegistries;
-import org.bson.codecs.configuration.CodecRegistry;
-import org.bson.codecs.pojo.PojoCodecProvider;
+import org.example.model.entities.Creacion;
 import org.example.model.entities.daos.*;
-import org.example.model.entities.models.*;
-
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
-import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
 
 
 public class Main {
@@ -30,10 +9,12 @@ public class Main {
 
         try {
             BaseDAO baseDAO = new BaseDAO();
-            ClienteDAO clienteDAO = new ClienteDAO(baseDAO);
+            baseDAO.crearTablas();
+
+            ClienteDAO clienteDAO = new ClienteDAO();
             CocheDAO cocheDAO = new CocheDAO(baseDAO);
-            PlatoDAO platoDAO = new PlatoDAO(baseDAO);
-            CocineroDAO cocineroDAO = new CocineroDAO(baseDAO);
+            PlatoDAO platoDAO = new PlatoDAO();
+            CocineroDAO cocineroDAO = new CocineroDAO();
             ReciboDAO reciboDAO = new ReciboDAO(baseDAO);
 
 
@@ -93,7 +74,8 @@ public class Main {
 //================================================AGRUPACIONES=================================================================================
 
             platoDAO.agrupacion();
-
+            platoDAO.agrupacionSuma();
+            clienteDAO.agrupacionPorAnho();
 
 
 

@@ -19,14 +19,14 @@ import static com.mongodb.client.model.Filters.eq;
 import static com.mongodb.client.model.Updates.combine;
 import static com.mongodb.client.model.Updates.set;
 
-public class CocineroDAO {
+public class CocineroDAO extends BaseDAO{
 
     private MongoCollection<Cocinero> cocineros;
 
 
-    public CocineroDAO(BaseDAO base){
+    public CocineroDAO(){
 
-        this.cocineros = base.db.getCollection("Cocineros", Cocinero.class);
+        this.cocineros = db.getCollection("Cocineros", Cocinero.class);
     }
 
     public void buscarTodosLosCocineros(){
@@ -65,7 +65,7 @@ public class CocineroDAO {
                     .into(new ArrayList<Cocinero>());
 
             File fichero = new
-                    File("C:\\Users\\Alex\\OneDrive\\Documentos\\CLASE\\ProyectoMongo\\ficheroCocineros.json");
+                    File("src\\main\\resources\\ficheroCocineros.json");
 
 
             mapeador.writeValue(fichero, consulta);

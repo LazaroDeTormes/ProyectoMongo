@@ -22,12 +22,12 @@ import static com.mongodb.client.model.Filters.eq;
 import static com.mongodb.client.model.Updates.combine;
 import static com.mongodb.client.model.Updates.set;
 
-public class ClienteDAO{
+public class ClienteDAO extends BaseDAO{
 
     private MongoCollection<Cliente> clientes;
 
-    public ClienteDAO(BaseDAO base){
-        this.clientes = base.db.getCollection("Clientes", Cliente.class);
+    public ClienteDAO(){
+        this.clientes = db.getCollection("Clientes", Cliente.class);
     }
 
     public void buscarCarlos(){
@@ -102,21 +102,14 @@ public class ClienteDAO{
 
 
 
-    public void agrupacion(){
+    public void agrupacionPorAnho(){
 
+        System.out.println("AGRUPAMOS LOS CLIENTES POR AÑO DE NACIMIENTO");
+        db.getCollection("Clientes").aggregate(List.of(
+                group("$fecha")
+        )).forEach(System.out::println);
 
-
-        AggregateIterable<Cliente> iterable = clientes.aggregate(Arrays.asList(
-
-                Aggregates.group("$fecha",
-                        Accumulators.sum("totalrecibos",
-                                Arrays.asList("$reciboid"))))
-
-        );
-
-        for (Cliente c : iterable) {
-            System.out.println(c);
-        }
+        System.out.println("");
 
     }
 
@@ -135,7 +128,7 @@ public class ClienteDAO{
                     .into(new ArrayList<Cliente>());
 
             File fichero = new
-                    File("C:\\Users\\Alex\\OneDrive\\Documentos\\CLASE\\ProyectoMongo\\ficheroClientes.json");
+                    File("src\\main\\resources\\ficheroClientes.json");
 
 
             mapeador.writeValue(fichero, consulta);

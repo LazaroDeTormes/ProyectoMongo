@@ -73,7 +73,7 @@ public class CocheDAO{
                     .into(new ArrayList<Coche>());
 
             File fichero = new
-                    File("C:\\Users\\Alex\\OneDrive\\Documentos\\CLASE\\ProyectoMongo\\ficheroCoches.json");
+                    File("src\\main\\resources\\ficheroCoches.json");
 
 
             mapeador.writeValue(fichero, consulta);
